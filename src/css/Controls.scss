@@ -1,0 +1,27 @@
+.controls
+{
+    width: 100px;
+    height: 60px;
+    padding: 8px;
+    position: fixed;
+    bottom: 8px;
+    left: 8px;
+    border-radius: 12px;
+    background-color: hsl(0, 0%, 88%);
+    opacity: 0.6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > .icon 
+    {
+        width: 24px;
+        height: 24px;
+    }
+
+    > p
+    {
+        font-size: 16px;
+    }
+}
+
