@@ -1,19 +1,17 @@
-import './css/App.scss';
-import Slides from './Slides';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import Presentation from "./pages/Presentation";
+import Home from "./pages/Home";
+import Setup from "./pages/Setup";
+import { Route, Switch } from "react-router-dom"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Alex's Presentation Karaoke</h1>
-        <FontAwesomeIcon icon={faInfoCircle} className="icon" />
-      </header>
-      <div>
-        <Slides/>
-      </div>
-    </div>
+    <main>
+      <Switch>
+          <Route path="/" component={Home} exact />
+          <Route path="/present" component={Presentation} />
+          <Route path="/setup" component={Setup} />
+      </Switch>
+    </main>
   );
 }
 

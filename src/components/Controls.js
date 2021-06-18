@@ -1,4 +1,4 @@
-import "./css/Controls.scss"
+import "../css/Controls.scss"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 
