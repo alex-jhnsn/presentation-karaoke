@@ -1,8 +1,7 @@
-.controls
-{
-    width: 100px;
-    height: 60px;
-    padding: 8px;
+.controls {
+    width: 124px;
+    height: 40px;
+    padding: 8px 0;
     position: fixed;
     bottom: 8px;
     left: 8px;
@@ -13,14 +12,18 @@
     align-items: center;
     justify-content: center;
 
-    > .icon 
-    {
-        width: 24px;
-        height: 24px;
+    > button {
+
+        border: 0;
+        background: none;
+
+        > .icon {
+            width: 24px;
+            height: 24px;
+        }
     }
 
-    > p
-    {
+    > p {
         font-size: 16px;
     }
 }
