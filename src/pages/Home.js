@@ -5,7 +5,7 @@ function Home() {
   return (
     <div className="App">
         Home
-        <Link to="/presentation">Start</Link>
+        <Link to="/setup">Start</Link>
     </div>
   );
 }
