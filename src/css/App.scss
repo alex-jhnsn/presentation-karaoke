@@ -6,9 +6,20 @@
 
 .App-header {
   background-color:  hsl(281, 33%, 40%);
-  height: 50px;
+  height: 30px;
   display: flex;
   align-items: center;
   color: white;
   padding: 12px 12px;
+
+  > h1 {
+    font-size: 24px;
+  }
+
+  > .icon {
+    width: 20px;
+    height: 20px;
+    margin: auto 12px auto auto;
+    display: block;
+  }
 }
