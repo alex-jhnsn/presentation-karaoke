@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Controls from "./Controls";
+import Image from "./Image";
 
 const url = "https://api.unsplash.com/photos/random";
 const accessKey = "SZ6bDYbZc8xa7ej2Jd7Dd7f3-Op79tnfCgZ0wcjpNjE";
@@ -20,12 +21,21 @@ function Slides() {
       .then(res => res.json())
       .then(
         (result) => {
-          console.log(result)
-          const imageUrls = result.map(
-            imageData => imageData.urls.regular
+          const images = result.map(
+             imageData => {
+              return {
+                url: imageData.urls.regular,
+                description: imageData.description,
+                author: {
+                  username: imageData.user.username,
+                  name: imageData.user.name
+                }
+              }
+            }
           );
+          console.log(images)
+          setImages(images);
           setIsLoaded(true);
-          setImages(imageUrls);
         },
         (error) => {
           setIsLoaded(true);
@@ -39,9 +49,11 @@ function Slides() {
   } else if (!isLoaded) {
     return <div>Loading...</div>
   } else {
+    console.log(images)
+    console.log(images[currentSlide-1]);
     return (
       <div>
-        <img src={images[currentSlide-1]} alt="test"/>
+        <Image image={images[currentSlide-1]} />
         <Controls currentSlide={currentSlide} totalSlides={images.length} changeSlide={setCurrentSlide}/>
       </div>
     )
