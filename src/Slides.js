@@ -41,8 +41,8 @@ function Slides() {
   } else {
     return (
       <div>
-        <img src={images[currentSlide]} alt="test"/>
-        <Controls currentSlide={currentSlide} totalSlides={images.length}/>
+        <img src={images[currentSlide-1]} alt="test"/>
+        <Controls currentSlide={currentSlide} totalSlides={images.length} changeSlide={setCurrentSlide}/>
       </div>
     )
   }
