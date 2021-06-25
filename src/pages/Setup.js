@@ -1,13 +1,13 @@
 import '../css/App.scss';
-import Slides from '../components/Slides';
 import Header from '../components/Header';
+import SetupForm from '../components/SetupForm';
 
 function Setup() {
   return (
     <div className="App">
       <Header />
       <div>
-        <Slides/>
+        <SetupForm />
       </div>
     </div>
   );

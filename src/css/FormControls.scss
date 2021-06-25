@@ -1,0 +1,29 @@
+.inputContainer {
+  
+}
+
+.radioContainer {
+  height: 50px;
+  border-radius: 8px;
+  background-color: white;
+  width: fit-content;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+
+  > input {
+    display: none;
+  }
+
+  input:checked + label {
+    background-color: green;
+  }
+
+  > label {
+    display: block;
+    height: 30px;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 8px;
+  }
+}
