@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Controls from "./Controls";
 import Image from "./Image";
-import { useTimer } from "./Timer";
 
 const url = "https://api.unsplash.com/photos/random";
 const accessKey = "SZ6bDYbZc8xa7ej2Jd7Dd7f3-Op79tnfCgZ0wcjpNjE";
@@ -65,9 +64,8 @@ function Slides(props) {
   } else {  
     return (
       <div>
-        <div>{time}</div>
         <Image image={images[currentSlide-1]} />
-        <Controls currentSlide={currentSlide} totalSlides={images.length} changeSlide={setCurrentSlide}/>
+        <Controls currentSlide={currentSlide} totalSlides={images.length} changeSlide={setCurrentSlide} time={time} initialTime={props.timer}/> 
       </div>
     )
   }
