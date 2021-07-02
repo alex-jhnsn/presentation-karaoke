@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Controls from "./Controls";
 import Image from "./Image";
 
@@ -10,7 +10,12 @@ function Slides(props) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [images, setImages] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(1);
-  const [time, setTime] = useState(props.timer)
+  const [time, setTime] = useState(props.timer);
+
+  const updateSlide = ((slide) => {
+    setCurrentSlide(slide);
+    setTime(props.timer)
+  });
 
   useEffect(() => {
     fetch(url + "?orientation=landscape&content_filter=high&count=" + props.slides , {
@@ -44,12 +49,11 @@ function Slides(props) {
   }, [props.slides]);
 
   useEffect(() => {
-    if (time < 1) {
-      setCurrentSlide(currentSlide + 1);
-      setTime(props.timer);
+    if (time < 1 && currentSlide < props.slides) {
+      updateSlide(currentSlide + 1);
     }
       
-    if (currentSlide < props.slides) {
+    if (currentSlide <= props.slides) {
       const timeLeft = setInterval(() => {
         setTime(c => c - 1);
       }, 1000);
@@ -65,7 +69,7 @@ function Slides(props) {
     return (
       <div>
         <Image image={images[currentSlide-1]} />
-        <Controls currentSlide={currentSlide} totalSlides={images.length} changeSlide={setCurrentSlide} time={time} initialTime={props.timer}/> 
+        <Controls currentSlide={currentSlide} totalSlides={images.length} changeSlide={updateSlide} time={time} initialTime={props.timer}/> 
       </div>
     )
   }
