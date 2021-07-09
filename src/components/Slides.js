@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Redirect } from 'react-router-dom';
 import Controls from "./Controls";
 import Image from "./Image";
 

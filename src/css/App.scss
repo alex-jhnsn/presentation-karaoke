@@ -3,3 +3,26 @@
   background-color: hsl(281, 33%, 70%);
   height: 100vh;
 }
+
+.btnLink {
+
+  text-decoration: none;
+  width: fit-content;
+  padding: 12px 16px;
+  border-radius: 12px;
+
+  &.--primary {
+    
+    background-color: hsl(281, 33%, 40%);
+    color: white;
+  }
+
+  &.--secondary {
+    border: 2px solid hsl(281, 33%, 40%);
+    color: hsl(281, 33%, 40%);
+  }
+
+  &.--secondary {
+
+  }
+}
