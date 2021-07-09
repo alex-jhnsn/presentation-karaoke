@@ -1,10 +1,9 @@
 import '../css/App.scss';
 import queryString from 'query-string';
-import { useLocation } from 'react-router-dom';
-import Slides from '../components/Slides';
+import { Link, useLocation } from 'react-router-dom';
 import Header from '../components/Header';
 
-function Presentation(props) {
+function End() {
 
   const { search } = useLocation();
   const values = queryString.parse(search);
@@ -13,11 +12,12 @@ function Presentation(props) {
     <div className="App">
       <Header/>
       <div>
-        
-        <Slides theme={values.theme} slides={values.slides} timer={values.timer} history={props.history}/>
+        You're all done
+        <Link to={`/present?theme=${values.theme}&slides=${values.slides}&timer=${values.timer}`}>Again</Link>
+        <Link to={"/setup"}>Different settings</Link>
       </div>
     </div>
   );
 }
 
-export default Presentation;
+export default End;
