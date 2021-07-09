@@ -1,4 +1,5 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
+import { Redirect } from 'react-router-dom';
 import Controls from "./Controls";
 import Image from "./Image";
 
@@ -49,7 +50,15 @@ function Slides(props) {
   }, [props.slides]);
 
   useEffect(() => {
+
+    if (time < 1 && currentSlide >= props.slides) {
+      console.log("we got no more slides");
+      // return <Redirect to={`/end?theme=${props.theme}&slides=${props.slides}&timer=${props.timeLimit}`} />
+      props.history.push(`/end?theme=${props.theme}&slides=${props.slides}&timer=${props.timer}`)
+    }
+
     if (time < 1 && currentSlide < props.slides) {
+      console.log("we going to next")
       updateSlide(currentSlide + 1);
     }
       
