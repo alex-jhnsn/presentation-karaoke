@@ -1,6 +1,8 @@
 import "../css/FormControls.scss";
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 function SetupForm() {
 
@@ -9,21 +11,24 @@ function SetupForm() {
   const [theme, setTheme] = useState("false");
 
   return (
-    <div>
+    <div className="setupForm">
         <TimeLimit value={timeLimit} onChange={(e) => {setTimeLimit(e.target.value)}}/>
         <Slides value={slides} onChange={(e) => {setSlides(e.target.value)}}/>
         <Theme value={theme} onChange={(e) => {setTheme(e.target.value)}}/>
 
-        <Link to={`/present?theme=${theme}&slides=${slides}&timer=${timeLimit}`}>Present</Link>
+        <Link className="btnLink" to={`/present?theme=${theme}&slides=${slides}&timer=${timeLimit}`}>
+          Present
+          <FontAwesomeIcon icon={faChevronRight} className="icon" />
+        </Link>
     </div>
   );
 }
 
 function TimeLimit(props) {
   return (
-    <div>
-      <div>
-        <h3>Timer</h3>
+    <div className="inputContainer">
+      <div className="inputLabel">
+        <h3>Time limit</h3>
         <p>Set a time limit per slide, slides will change after this time</p>
       </div>
       <div className="radioContainer">
@@ -36,7 +41,6 @@ function TimeLimit(props) {
         <input type="radio" id="timelimit_0" name="timelimit" value="0" checked={props.value === "0"} onChange={props.onChange} />
         <label htmlFor="timelimit_0">Unlimited</label>
       </div>
-      {props.value}
     </div>
   );
 }
@@ -62,8 +66,8 @@ function Slides(props) {
 
 function Theme(props) {
   return (
-    <div>
-      <div>
+    <div className="inputContainer">
+      <div className="inputLabel">
         <h3>Topic</h3>
         <p>Would you like a randomly generated theme to talk about?</p>
       </div>
