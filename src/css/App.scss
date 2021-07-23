@@ -1,6 +1,8 @@
+@import "./Variables.scss";
+
 .App {
   text-align: center;
-  background-color: hsl(281, 33%, 70%);
+  background-color: map-get($colors-primary, "light");
   height: 100vh;
 }
 
@@ -13,16 +15,16 @@
 
   &.--primary {
     
-    background-color: hsl(281, 33%, 40%);
-    color: white;
+    background-color: map-get($colors-primary, "medium");
+    color: map-get($colors-text, "light");;
   }
 
   &.--secondary {
-    border: 2px solid hsl(281, 33%, 40%);
-    color: hsl(281, 33%, 40%);
+    border: 2px solid map-get($colors-primary, "medium");
+    color: map-get($colors-primary, "medium");
   }
 
-  &.--secondary {
+  &.--tertiary {
 
   }
 }
