@@ -2,7 +2,6 @@ import '../css/App.scss';
 import '../css/End.scss';
 import queryString from 'query-string';
 import { Link, useLocation } from 'react-router-dom';
-import Header from '../components/Header';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrophy } from '@fortawesome/free-solid-svg-icons';
 
@@ -13,7 +12,6 @@ function End() {
 
   return (
     <div className="App">
-      <Header/>
       <div>
         <div className="body">
           <FontAwesomeIcon icon={faTrophy} className="icon" />

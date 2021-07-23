@@ -1,23 +1,31 @@
 import "../css/Controls.scss"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCaretRight } from '@fortawesome/free-solid-svg-icons';
+import { faCaretRight, faImages } from '@fortawesome/free-solid-svg-icons';
 
 function Controls(props) {
 
     return (
-        <div className="controls">
-            <SlideTimer initialTime={props.initialTime} time={props.time} />
-            <p>{props.currentSlide} / {props.totalSlides}</p>
-            <button onClick={() => props.changeSlide(props.currentSlide+1)} disabled={props.currentSlide === props.totalSlides}>
-                <FontAwesomeIcon className="icon" icon={faCaretRight} />
-            </button>
+        <div className="footerWrapper">
+            <div className="footer">
+                <div className="controls">
+                    <SlideTimer initialTime={props.initialTime} time={props.time} />
+                    <div className="slides">
+                        <FontAwesomeIcon className="icon" icon={faImages} />
+                        <p>{props.currentSlide} / {props.totalSlides}</p>
+                    </div>
+                    <button onClick={() => props.changeSlide(props.currentSlide+1)} disabled={props.currentSlide === props.totalSlides}>
+                        <FontAwesomeIcon className="icon" icon={faCaretRight} />
+                    </button>
+                </div>
+                <div className="title">AJ'S SLIDES</div>
+            </div>
         </div>
     );
 }
 
 function SlideTimer(props) {
     return (
-        <Timer initialTime={props.initialTime} currentTime={props.time} size={30} strokeColour={"#cccccc"} strokeBackgroundColour={"#000000"} strokeWidth={3}/>
+        <Timer initialTime={props.initialTime} currentTime={props.time} size={50} strokeColour={"#FFF9F5"} strokeBackgroundColour={"#000000"} strokeWidth={5}/>
     )
 }
 

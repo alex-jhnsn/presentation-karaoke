@@ -2,7 +2,7 @@ import Presentation from "./pages/Presentation";
 import Home from "./pages/Home";
 import Setup from "./pages/Setup";
 import End from "./pages/End";
-import { Route, Switch } from "react-router-dom"
+import { Route, Switch } from "react-router-dom";
 
 function App() {
   return (
