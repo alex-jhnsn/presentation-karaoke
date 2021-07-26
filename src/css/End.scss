@@ -1,21 +1,26 @@
+@import "./Variables.scss";
+
 .body {
   display: flex;
   flex-direction: column;
   align-items: center;
   
   > p {
-    font-size: 40px;
+    margin-top: 0;
+    font-size: 60px;
+    color: map-get($colors-text, "dark");
+    font-weight: 800;
   }
 
   .icon {
     height: 200px;
     width: 200px;
-    color: gold;
+    color: map-get($colors-text, "dark");
   }
 }
 
 .buttonWrapper {
-  margin: 0 auto;
+  margin: 100px auto 0 auto;
   display: flex;
   width: 400px;
   justify-content: space-around;
