@@ -1,2 +1,6 @@
 $colors-primary: ("light": #FFE2D1, "medium": #FF5E01, "dark": hsla(22,86.96, 27.06, 0.9));
 $colors-text: ("light": #FFF9F5, "dark": hsla(0,0,0,0.8));
+
+@mixin font-number {
+  font-family: 'Oxygen Mono', monospace;
+}
