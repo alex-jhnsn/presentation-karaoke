@@ -1,21 +1,29 @@
 @import "./Variables.scss";
 
 .image {
-    
-    .attribution {
-        
-        position: fixed;
-        top: 0;
-        right: 0;
-        background-color: map-get($colors-primary, medium);
-        padding: 8px 12px;
 
-        .icon {
-            margin-right: 8px;
-        }
+    > img {
+        margin: 0 auto;
+        display: block;
+        height: calc(100vh - 60px);
+        width: 100vw;
+        width: auto;
+        object-fit: cover;
+    }
+}
 
-        a {
-            color: black;
-        }
+.attribution {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: map-get($colors-primary, medium);
+    padding: 8px 12px;
+
+    .icon {
+        margin-right: 8px;
+    }
+
+    a {
+        color: black;
     }
 }

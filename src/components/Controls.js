@@ -11,7 +11,7 @@ function Controls(props) {
                     <SlideTimer initialTime={props.initialTime} time={props.time} />
                     <div className="slides">
                         <FontAwesomeIcon className="icon" icon={faImages} />
-                        <p>{props.currentSlide} / {props.totalSlides}</p>
+                        <p>{props.currentSlide}|{props.totalSlides}</p>
                     </div>
                     <button onClick={() => props.changeSlide(props.currentSlide+1)} disabled={props.currentSlide === props.totalSlides}>
                         <FontAwesomeIcon className="icon" icon={faCaretRight} />
