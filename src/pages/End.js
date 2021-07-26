@@ -3,7 +3,7 @@ import '../css/End.scss';
 import queryString from 'query-string';
 import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrophy } from '@fortawesome/free-solid-svg-icons';
+import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 
 function End() {
 
@@ -11,12 +11,10 @@ function End() {
   const values = queryString.parse(search);
 
   return (
-    <div className="App">
-      <div>
-        <div className="body">
-          <FontAwesomeIcon icon={faTrophy} className="icon" />
-          <p>You're all done</p>
-        </div>
+    <div className="App --centred">
+      <div className="body --centred">
+        <p>GREAT SUCCESS!</p>
+        <FontAwesomeIcon icon={faThumbsUp} className="icon" />
         <div className="buttonWrapper">
           <Link className="btnLink --primary" to={`/present?theme=${values.theme}&slides=${values.slides}&timer=${values.timer}`}>Again</Link>
           <Link className="btnLink --secondary" to={"/setup"}>Different settings</Link>

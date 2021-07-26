@@ -4,6 +4,10 @@
   text-align: center;
   background-color: map-get($colors-primary, "light");
   height: 100vh;
+
+  &.--centred {
+    display: flex;
+  }
 }
 
 .btnLink {
@@ -12,11 +16,12 @@
   width: fit-content;
   padding: 12px 16px;
   border-radius: 12px;
+  font-weight: 600;
 
   &.--primary {
     
     background-color: map-get($colors-primary, "medium");
-    color: map-get($colors-text, "light");;
+    color: map-get($colors-text, "light");
   }
 
   &.--secondary {
@@ -26,5 +31,12 @@
 
   &.--tertiary {
 
+  }
+}
+
+.body {
+
+  &.--centred {
+    margin: auto;
   }
 }
