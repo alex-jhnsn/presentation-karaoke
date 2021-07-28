@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Oxygen+Mono&family=Raleway:wght@400;700;900&display=swap');
 
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
 body {
   margin: 0;
   font-family: 'Raleway', sans-serif;

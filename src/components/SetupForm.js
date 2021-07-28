@@ -12,12 +12,12 @@ function SetupForm() {
 
   return (
     <div className="setupForm">
-        <TimeLimit value={timeLimit} onChange={(e) => {setTimeLimit(e.target.value)}}/>
         <Slides value={slides} onChange={(e) => {setSlides(e.target.value)}}/>
+        <TimeLimit value={timeLimit} onChange={(e) => {setTimeLimit(e.target.value)}}/>
         {/* <Theme value={theme} onChange={(e) => {setTheme(e.target.value)}}/> */}
 
         <Link className="btnLink" to={`/present?theme=${theme}&slides=${slides}&timer=${timeLimit}`}>
-          Present
+          PRESENT
           <FontAwesomeIcon icon={faChevronRight} className="icon" />
         </Link>
     </div>
