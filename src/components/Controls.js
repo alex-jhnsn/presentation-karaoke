@@ -25,7 +25,7 @@ function Controls(props) {
 
 function SlideTimer(props) {
     return (
-        <Timer initialTime={props.initialTime} currentTime={props.time} size={50} strokeColour={"#FFF9F5"} strokeBackgroundColour={"#000000"} strokeWidth={5}/>
+        <Timer initialTime={props.initialTime} currentTime={props.time} size={40} strokeColour={"#FFF9F5"} strokeBackgroundColour={"#000000"} strokeWidth={5}/>
     )
 }
 
