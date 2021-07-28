@@ -1,3 +1,5 @@
+@import "./Variables.scss";
+
 .setupForm {
   width: 450px;
   margin: 0 auto;
@@ -10,7 +12,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .inputLabel {
@@ -18,7 +20,7 @@
 }
 
 .radioContainer {
-  padding: 8px;
+  padding: 8px 0;
   display: flex;
 
   > input {
@@ -26,7 +28,7 @@
   }
 
   input:checked + label {
-    background-color: white;
+    background-color: map-get($colors-primary, "medium");
   }
 
   > label {
@@ -35,18 +37,21 @@
     padding: 12px 24px;
     border-radius: 8px;
     margin: 8px;
-    border: 2px solid white;
+    background-color: map-get($colors-text, "light");
     display: flex;
     align-items: center;
     transition: background-color 0.5s ease-in-out;
+    font-weight: bold;
+    @include font-number;
   }
 }
 
 .btnLink {
   align-self: flex-end;
   text-decoration: none;
-  color: #000;
+  color: map-get($colors-primary, "medium");
   font-size: 24px;
+  font-weight: 900;
   cursor: pointer;
   display: flex;
   align-items: center;

@@ -8,6 +8,15 @@
   &.--centred {
     display: flex;
   }
+
+  h1 {
+    font-weight: 900;
+    font-size: 70px;
+    margin: 0 auto 24px auto;
+    padding-top: 64px;
+    text-align: left;
+    width: 450px;
+  }
 }
 
 .btnLink {
