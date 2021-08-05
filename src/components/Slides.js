@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import Controls from "./Controls";
 import Image from "./Image";
+import useKeypress from "./UseKeypress";
 
 const url = "https://api.unsplash.com/photos/random";
 const accessKey = "SZ6bDYbZc8xa7ej2Jd7Dd7f3-Op79tnfCgZ0wcjpNjE";
+
+const keys = [" ", "ArrowRight"];
 
 function Slides(props) {
   const [error, setError] = useState(null);
@@ -13,9 +16,29 @@ function Slides(props) {
   const [time, setTime] = useState(props.timer);
 
   const updateSlide = ((slide) => {
-    setCurrentSlide(slide);
+
+    console.log(currentSlide + " vs " + props.slides);
+
+    setCurrentSlide(currentSlide + 1);
+
+    if (currentSlide >= props.slides)
+      props.history.push(`/end?theme=${props.theme}&slides=${props.slides}&timer=${props.timer}`);
+
     setTime(props.timer)
-  });
+  });   
+
+  // useKeypress([" ", "ArrowRight"], () => {
+  //   updateSlide(currentSlide + 1);
+  // });
+
+  useEffect(() => {
+    function onKeyup(e) {
+      if (keys.includes(e.key)) updateSlide(currentSlide + 1)
+    }
+    
+    window.addEventListener('keyup', onKeyup);
+    return () => window.removeEventListener('keyup', onKeyup);
+  }, []);
 
   useEffect(() => {
     fetch(url + "?orientation=landscape&content_filter=high&count=" + props.slides , {
@@ -49,15 +72,11 @@ function Slides(props) {
   }, [props.slides]);
 
   useEffect(() => {
-
     if (time < 1 && currentSlide >= props.slides) {
-      console.log("we got no more slides");
-      // return <Redirect to={`/end?theme=${props.theme}&slides=${props.slides}&timer=${props.timeLimit}`} />
       props.history.push(`/end?theme=${props.theme}&slides=${props.slides}&timer=${props.timer}`)
     }
 
     if (time < 1 && currentSlide < props.slides) {
-      console.log("we going to next")
       updateSlide(currentSlide + 1);
     }
       
