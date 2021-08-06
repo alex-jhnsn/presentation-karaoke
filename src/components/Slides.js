@@ -3,7 +3,9 @@ import Controls from "./Controls";
 import Image from "./Image";
 
 const url = "https://api.unsplash.com/photos/random";
-const accessKey = "UNSPLASHED_API_KEY";
+const keys = [" ", "ArrowRight"];
+
+console.log(process.env.REACT_APP_UNSPLASH_API_KEY);
 
 function Slides(props) {
   const [error, setError] = useState(null);
@@ -12,15 +14,27 @@ function Slides(props) {
   const [currentSlide, setCurrentSlide] = useState(1);
   const [time, setTime] = useState(props.timer);
 
-  const updateSlide = ((slide) => {
-    setCurrentSlide(slide);
+  const updateSlide = (() => {
+    if (currentSlide >= props.slides)
+      props.history.push(`/end?theme=${props.theme}&slides=${props.slides}&timer=${props.timer}`);
+
+    setCurrentSlide(currentSlide + 1);
     setTime(props.timer)
-  });
+  });   
+
+  useEffect(() => {
+    function onKeyup(e) {
+      if (keys.includes(e.key)) updateSlide()
+    }
+    
+    window.addEventListener('keyup', onKeyup);
+    return () => window.removeEventListener('keyup', onKeyup);
+  }, [currentSlide]);
 
   useEffect(() => {
     fetch(url + "?orientation=landscape&content_filter=high&count=" + props.slides , {
       headers: new Headers({
-        "Authorization": "Client-ID " + accessKey
+        "Authorization": "Client-ID " + process.env.REACT_APP_UNSPLASH_API_KEY
       })
     })
       .then(res => res.json())
@@ -49,15 +63,11 @@ function Slides(props) {
   }, [props.slides]);
 
   useEffect(() => {
-
     if (time < 1 && currentSlide >= props.slides) {
-      console.log("we got no more slides");
-      // return <Redirect to={`/end?theme=${props.theme}&slides=${props.slides}&timer=${props.timeLimit}`} />
       props.history.push(`/end?theme=${props.theme}&slides=${props.slides}&timer=${props.timer}`)
     }
 
     if (time < 1 && currentSlide < props.slides) {
-      console.log("we going to next")
       updateSlide(currentSlide + 1);
     }
       
