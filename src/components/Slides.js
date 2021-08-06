@@ -3,9 +3,9 @@ import Controls from "./Controls";
 import Image from "./Image";
 
 const url = "https://api.unsplash.com/photos/random";
-const accessKey = "UNSPLASHED_API_KEY";
-
 const keys = [" ", "ArrowRight"];
+
+console.log(process.env.REACT_APP_UNSPLASH_API_KEY);
 
 function Slides(props) {
   const [error, setError] = useState(null);
@@ -34,7 +34,7 @@ function Slides(props) {
   useEffect(() => {
     fetch(url + "?orientation=landscape&content_filter=high&count=" + props.slides , {
       headers: new Headers({
-        "Authorization": "Client-ID " + accessKey
+        "Authorization": "Client-ID " + process.env.REACT_APP_UNSPLASH_API_KEY
       })
     })
       .then(res => res.json())
